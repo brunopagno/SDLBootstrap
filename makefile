@@ -1,6 +1,11 @@
-PROJECTNAME=anovaders
-SOURCES=src/
-OUTPUT=build/
+PROJECTNAME=sdlbootstrap
+CC=g++
+SOURCEDIR=src/
+OUTPUTDIR=build/
+INCLUDE_PATHS=-Isdl/include/SDL2
+LIBRARY_PATHS=-Lsdl/lib
+COMPILER_FLAGS=-Wall
+LINKER_FLAGS=-lSDL2 -lSDL2Main
 
 all:
-	g++ $(SOURCES)main.cpp -Isdl/include/SDL2 -Lsdl/lib -lSDL2 -lSDL2Main -o $(OUTPUT)$(PROJECTNAME)
+	$(CC) $(SOURCEDIR)main.cpp $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OUTPUTDIR)$(PROJECTNAME)
